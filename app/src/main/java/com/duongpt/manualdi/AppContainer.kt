@@ -1,5 +1,6 @@
 package com.duongpt.manualdi
 
+import com.duongpt.manualdi.login.LoginContainer
 import com.duongpt.manualdi.login.LoginRetrofitService
 import com.duongpt.manualdi.login.LoginService
 import com.duongpt.manualdi.login.LoginViewModelFactory
@@ -21,5 +22,9 @@ class AppContainer {
     // Now you can create an instance of UserRepository that LoginViewModel needs
     val userRepository = UserRepository(localDataSource, remoteDataSource)
 
-    val loginViewModelFactory = LoginViewModelFactory(userRepository)
+//    val loginViewModelFactory = LoginViewModelFactory(userRepository)
+
+    // LoginContainer will be null when the user is NOT in the login flow
+    var loginContainer: LoginContainer? = null
+
 }
