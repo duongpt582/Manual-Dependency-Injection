@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.duongpt.manualdi.MyApplication
 import com.duongpt.manualdi.R
 import retrofit2.Retrofit
 
@@ -39,6 +40,12 @@ class LoginActivity : AppCompatActivity() {
 
         // Lastly, create an instance of LoginViewModel with userRepository
         val viewModel = LoginViewModel(userRepository)
+
+
+        // Gets userRepository from the instance of AppContainer in Application
+        val appContainer = (application as MyApplication).appContainer
+        loginViewModel = appContainer.loginViewModelFactory.create()
+
 
     }
 }
